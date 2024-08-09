@@ -1,3 +1,11 @@
+export type NewUserType = {
+  _id: string;
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+};
+
 export type User = {
   name: string;
   email: string;

@@ -11,6 +11,7 @@ import { User } from "../types/types";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import toast from "react-hot-toast";
+import SignOutButton from "./signout-button";
 
 interface PropsType {
   user: User | null;
@@ -39,6 +40,9 @@ const Header = ({ user }: PropsType) => {
       </Link>
       <Link onClick={() => setIsOpen(false)} to={"/cart"}>
         <FaShoppingBag />
+      </Link>
+      <Link onClick={() => setIsOpen(false)} to={"/"}>
+        <SignOutButton />
       </Link>
 
       {user?._id ? (

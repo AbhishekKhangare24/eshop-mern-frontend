@@ -11,6 +11,8 @@ import { getUser } from "./redux/api/userAPI";
 import { userExist, userNotExist } from "./redux/reducer/userReducer";
 import { RootState } from "./redux/store";
 import Footer from "./components/footer";
+import Register from "./pages/register";
+import SignIn from "./pages/sign-in";
 
 const Home = lazy(() => import("./pages/home"));
 const Search = lazy(() => import("./pages/search"));
@@ -85,6 +87,23 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+          {/* <Route
+            path="/register"
+            element={
+              <ProtectedRoute isAuthenticated={user ? false : true}>
+                <Register />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <ProtectedRoute isAuthenticated={user ? false : true}>
+                <SignIn />
+              </ProtectedRoute>
+            }
+          /> */}
+
           {/* Logged In User Routes */}
           <Route
             element={<ProtectedRoute isAuthenticated={user ? true : false} />}
