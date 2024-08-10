@@ -11,6 +11,7 @@ import { User } from "../types/types";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import toast from "react-hot-toast";
+import { useAppContext } from "../contexts/AppContext";
 import SignOutButton from "./signout-button";
 
 interface PropsType {
@@ -19,6 +20,7 @@ interface PropsType {
 
 const Header = ({ user }: PropsType) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { isLoggedIn } = useAppContext();
 
   const logoutHandler = async () => {
     try {
@@ -41,9 +43,15 @@ const Header = ({ user }: PropsType) => {
       <Link onClick={() => setIsOpen(false)} to={"/cart"}>
         <FaShoppingBag />
       </Link>
-      <Link onClick={() => setIsOpen(false)} to={"/"}>
-        <SignOutButton />
-      </Link>
+      {isLoggedIn ? (
+        <>
+          <Link to="/products">Product</Link>
+          <Link to="/cart">Cart</Link>
+          <SignOutButton />
+        </>
+      ) : (
+        <Link to="/sign-in">Sign In</Link>
+      )}
 
       {user?._id ? (
         <>

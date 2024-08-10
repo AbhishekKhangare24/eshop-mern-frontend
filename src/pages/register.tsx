@@ -5,11 +5,13 @@ import { useAppContext } from "../contexts/AppContext";
 import { useNavigate } from "react-router-dom";
 
 export type RegisterFormData = {
-  firstName: string;
-  lastName: string;
+  name: string;
   email: string;
+  photo: string;
+  gender: string;
+  role: "user";
+  dob: string;
   password: string;
-  confirmPassword: string;
 };
 
 const Register = () => {
@@ -36,6 +38,7 @@ const Register = () => {
   });
 
   const onSubmit = handleSubmit((data) => {
+    console.log(data);
     mutation.mutate(data);
   });
 
@@ -44,23 +47,43 @@ const Register = () => {
       <h2 className="text-3xl font-bold">Create an Account</h2>
       <div className="flex flex-col md:flex-row gap-5">
         <label className="text-gray-700 text-sm font-bold flex-1">
-          First Name
+          Full Name
           <input
             className="border rounded w-full py-1 px-2 font-normal"
-            {...register("firstName", { required: "This field is required" })}
+            {...register("name", { required: "This field is required" })}
           ></input>
-          {errors.firstName && (
-            <span className="text-red-500">{errors.firstName.message}</span>
+          {errors.name && (
+            <span className="text-red-500">{errors.name.message}</span>
           )}
         </label>
         <label className="text-gray-700 text-sm font-bold flex-1">
-          Last Name
+          Photo
           <input
             className="border rounded w-full py-1 px-2 font-normal"
-            {...register("lastName", { required: "This field is required" })}
+            {...register("photo", { required: "This field is required" })}
           ></input>
-          {errors.lastName && (
-            <span className="text-red-500">{errors.lastName.message}</span>
+          {errors.photo && (
+            <span className="text-red-500">{errors.photo.message}</span>
+          )}
+        </label>
+        <label className="text-gray-700 text-sm font-bold flex-1">
+          Gender
+          <input
+            className="border rounded w-full py-1 px-2 font-normal"
+            {...register("gender", { required: "This field is required" })}
+          ></input>
+          {errors.gender && (
+            <span className="text-red-500">{errors.gender.message}</span>
+          )}
+        </label>
+        <label className="text-gray-700 text-sm font-bold flex-1">
+          DOB
+          <input
+            className="border rounded w-full py-1 px-2 font-normal"
+            {...register("dob", { required: "This field is required" })}
+          ></input>
+          {errors.dob && (
+            <span className="text-red-500">{errors.dob.message}</span>
           )}
         </label>
       </div>
@@ -92,7 +115,7 @@ const Register = () => {
           <span className="text-red-500">{errors.password.message}</span>
         )}
       </label>
-      <label className="text-gray-700 text-sm font-bold flex-1">
+      {/* <label className="text-gray-700 text-sm font-bold flex-1">
         Confirm Password
         <input
           type="password"
@@ -110,7 +133,7 @@ const Register = () => {
         {errors.confirmPassword && (
           <span className="text-red-500">{errors.confirmPassword.message}</span>
         )}
-      </label>
+      </label> */}
       <span>
         <button
           type="submit"

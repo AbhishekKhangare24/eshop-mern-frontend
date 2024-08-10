@@ -1,7 +1,7 @@
 import { RegisterFormData } from "../../pages/register";
 import { SignInFormData } from "../../pages/sign-in";
 import { NewUserType } from "../../types/types";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+const API_BASE_URL = import.meta.env.VITE_SERVER || "";
 
 export const fetchCurrentUser = async (): Promise<NewUserType> => {
   const response = await fetch(`${API_BASE_URL}/api/users/me`, {
@@ -14,7 +14,7 @@ export const fetchCurrentUser = async (): Promise<NewUserType> => {
 };
 
 export const register = async (formData: RegisterFormData) => {
-  const response = await fetch(`${API_BASE_URL}/api/users/register`, {
+  const response = await fetch(`${API_BASE_URL}/api/v1/user/new`, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -31,7 +31,7 @@ export const register = async (formData: RegisterFormData) => {
 };
 
 export const signIn = async (formData: SignInFormData) => {
-  const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+  const response = await fetch(`${API_BASE_URL}/api/v1/auth/login`, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -48,7 +48,7 @@ export const signIn = async (formData: SignInFormData) => {
 };
 
 export const validateToken = async () => {
-  const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
+  const response = await fetch(`${API_BASE_URL}/api/v1/auth/validate-token`, {
     credentials: "include",
   });
 
@@ -60,7 +60,7 @@ export const validateToken = async () => {
 };
 
 export const signOut = async () => {
-  const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
+  const response = await fetch(`${API_BASE_URL}/api/v1/auth/logout`, {
     credentials: "include",
     method: "POST",
   });
