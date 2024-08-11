@@ -34,6 +34,9 @@ const Header = ({ user }: PropsType) => {
 
   return (
     <nav className="header">
+      <div style={{ position: "absolute", left: "60px", fontSize: "23px" }}>
+        eShop
+      </div>
       <Link onClick={() => setIsOpen(false)} to={"/"}>
         Home
       </Link>
@@ -45,7 +48,7 @@ const Header = ({ user }: PropsType) => {
         {/* <FaShoppingBag /> */}
         Cart
       </Link>
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? (
         <>
           <Link to="/products">Product</Link>
           <Link to="/cart">Cart</Link>
@@ -80,7 +83,7 @@ const Header = ({ user }: PropsType) => {
         <Link to={"/login"}>
           <FaSignInAlt />
         </Link>
-      )}
+      )} */}
     </nav>
   );
 };
