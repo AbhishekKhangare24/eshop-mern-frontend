@@ -35,13 +35,15 @@ const Header = ({ user }: PropsType) => {
   return (
     <nav className="header">
       <Link onClick={() => setIsOpen(false)} to={"/"}>
-        HOME
+        Home
       </Link>
       <Link onClick={() => setIsOpen(false)} to={"/search"}>
-        <FaSearch />
+        {/* <FaSearch />  */}
+        Search
       </Link>
       <Link onClick={() => setIsOpen(false)} to={"/cart"}>
-        <FaShoppingBag />
+        {/* <FaShoppingBag /> */}
+        Cart
       </Link>
       {/* {isLoggedIn ? (
         <>
@@ -52,7 +54,6 @@ const Header = ({ user }: PropsType) => {
       ) : (
         <Link to="/sign-in">Sign In</Link>
       )} */}
-
       {/* {user?._id ? (
         <>
           <button onClick={() => setIsOpen((prev) => !prev)}>
