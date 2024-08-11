@@ -43,7 +43,7 @@ const Header = ({ user }: PropsType) => {
       <Link onClick={() => setIsOpen(false)} to={"/cart"}>
         <FaShoppingBag />
       </Link>
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? (
         <>
           <Link to="/products">Product</Link>
           <Link to="/cart">Cart</Link>
@@ -51,9 +51,9 @@ const Header = ({ user }: PropsType) => {
         </>
       ) : (
         <Link to="/sign-in">Sign In</Link>
-      )}
+      )} */}
 
-      {user?._id ? (
+      {/* {user?._id ? (
         <>
           <button onClick={() => setIsOpen((prev) => !prev)}>
             <FaUser />
@@ -79,7 +79,7 @@ const Header = ({ user }: PropsType) => {
         <Link to={"/login"}>
           <FaSignInAlt />
         </Link>
-      )}
+      )} */}
     </nav>
   );
 };
