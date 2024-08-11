@@ -79,15 +79,15 @@ const App = () => {
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
           {/* Not logged In Route */}
-          <Route
+          {/* <Route
             path="/login"
             element={
               <ProtectedRoute isAuthenticated={user ? false : true}>
                 <Login />
               </ProtectedRoute>
             }
-          />
-          {/* <Route
+          /> */}
+          <Route
             path="/register"
             element={
               <ProtectedRoute isAuthenticated={user ? false : true}>
@@ -102,7 +102,7 @@ const App = () => {
                 <SignIn />
               </ProtectedRoute>
             }
-          /> */}
+          />
 
           {/* Logged In User Routes */}
           <Route
