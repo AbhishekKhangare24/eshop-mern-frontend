@@ -56,8 +56,6 @@ const App = () => {
     (state: RootState) => state.userReducer
   );
 
-  console.log("add user ==>", user);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
