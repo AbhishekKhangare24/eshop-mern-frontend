@@ -57,7 +57,7 @@ const App = () => {
   );
 
   const dispatch = useDispatch();
-
+  console.log("app user =>", user);
   useEffect(() => {
     // onAuthStateChanged(auth, async (user) => {
     //   if (user) {

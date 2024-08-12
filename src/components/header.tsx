@@ -11,8 +11,8 @@ import { User } from "../types/types";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import toast from "react-hot-toast";
-import { useAppContext } from "../contexts/AppContext";
 import SignOutButton from "./signout-button";
+import { useAppContext } from "../contexts/AppContext";
 
 interface PropsType {
   user: User | null;
@@ -21,6 +21,8 @@ interface PropsType {
 const Header = ({ user }: PropsType) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { isLoggedIn } = useAppContext();
+
+  console.log("user ==>", user);
 
   const logoutHandler = async () => {
     try {
@@ -34,11 +36,8 @@ const Header = ({ user }: PropsType) => {
 
   return (
     <nav className="header">
-      <div style={{ position: "absolute", left: "60px", fontSize: "23px" }}>
-        eShop
-      </div>
       <Link onClick={() => setIsOpen(false)} to={"/"}>
-        Home
+        HOME
       </Link>
       <Link onClick={() => setIsOpen(false)} to={"/search"}>
         <FaSearch />
@@ -53,6 +52,7 @@ const Header = ({ user }: PropsType) => {
       ) : (
         <Link to="/sign-in">Sign In</Link>
       )}
+
       {user?._id ? (
         <>
           <button onClick={() => setIsOpen((prev) => !prev)}>
