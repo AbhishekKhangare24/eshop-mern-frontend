@@ -22,8 +22,6 @@ const Header = ({ user }: PropsType) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { isLoggedIn } = useAppContext();
 
-  console.log("user ==>", user);
-
   const logoutHandler = async () => {
     try {
       await signOut(auth);
