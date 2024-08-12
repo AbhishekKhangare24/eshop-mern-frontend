@@ -24,7 +24,7 @@ export const register = async (formData: RegisterFormData) => {
   });
 
   const responseBody = await response.json();
-
+  localStorage.setItem("user", JSON.stringify(responseBody?.user));
   if (!response.ok) {
     throw new Error(responseBody.message);
   }
