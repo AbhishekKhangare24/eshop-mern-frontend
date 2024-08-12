@@ -13,6 +13,7 @@ import { RootState } from "./redux/store";
 import Footer from "./components/footer";
 import Register from "./pages/register";
 import SignIn from "./pages/sign-in";
+import { User } from "./types/types";
 
 const Home = lazy(() => import("./pages/home"));
 const Search = lazy(() => import("./pages/search"));
@@ -55,15 +56,29 @@ const App = () => {
     (state: RootState) => state.userReducer
   );
 
+  console.log("add user ==>", user);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
+    // onAuthStateChanged(auth, async (user) => {
+    //   if (user) {
+    //     const data = await getUser(user.uid);
+    //     dispatch(userExist(data.user));
+    //   } else dispatch(userNotExist());
+    // });
+
+    let loggedUser = localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user") as string)
+      : null;
+
+    const isUser = async (user: User) => {
       if (user) {
-        const data = await getUser(user.uid);
+        const data = await getUser(user._id);
         dispatch(userExist(data.user));
       } else dispatch(userNotExist());
-    });
+    };
+    isUser(loggedUser);
   }, []);
 
   return loading ? (

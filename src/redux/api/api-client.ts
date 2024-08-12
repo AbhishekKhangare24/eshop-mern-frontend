@@ -41,6 +41,8 @@ export const signIn = async (formData: SignInFormData) => {
   });
 
   const body = await response.json();
+  localStorage.setItem("user", JSON.stringify(body?.user));
+
   if (!response.ok) {
     throw new Error(body.message);
   }
@@ -64,6 +66,8 @@ export const signOut = async () => {
     credentials: "include",
     method: "POST",
   });
+
+  localStorage.removeItem("user");
 
   if (!response.ok) {
     throw new Error("Error during sign out");
