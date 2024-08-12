@@ -41,17 +41,13 @@ const Header = ({ user }: PropsType) => {
         Home
       </Link>
       <Link onClick={() => setIsOpen(false)} to={"/search"}>
-        {/* <FaSearch />  */}
-        Search
+        <FaSearch />
       </Link>
       <Link onClick={() => setIsOpen(false)} to={"/cart"}>
-        {/* <FaShoppingBag /> */}
-        Cart
+        <FaShoppingBag />
       </Link>
-      {/* {isLoggedIn ? (
+      {isLoggedIn ? (
         <>
-          <Link to="/products">Product</Link>
-          <Link to="/cart">Cart</Link>
           <SignOutButton />
         </>
       ) : (
@@ -83,7 +79,7 @@ const Header = ({ user }: PropsType) => {
         <Link to={"/login"}>
           <FaSignInAlt />
         </Link>
-      )} */}
+      )}
     </nav>
   );
 };
