@@ -52,7 +52,7 @@ const Register = () => {
   return (
     <div className="register_1">
       <div className="register_2">
-        <div className="sub_container">
+        <div className="reg_container">
           {/* <img
           src="https://www.svgrepo.com/show/301692/login.svg"
           alt="Workflow"
@@ -60,7 +60,7 @@ const Register = () => {
           <h2>Create new Account</h2>
         </div>
 
-        <form onSubmit={onSubmit}>
+        <form className="reg_form" onSubmit={onSubmit}>
           <div className="register_3">
             <label htmlFor="name" className="register_4">
               Full Name

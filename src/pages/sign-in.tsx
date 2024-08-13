@@ -76,7 +76,7 @@ const SignIn = () => {
               </div>
             </div>
             <div className="sign_in-7">
-              <label htmlFor="password" className="sign_in-8">
+              <label htmlFor="password" className="sign_in-3">
                 Password
               </label>
               <div className="sign_in-4">
