@@ -69,11 +69,18 @@ const Register = () => {
             )}
           </label> */}
           <label className="text-gray-700 text-sm font-bold flex-1">
-            Gender
-            {/* <input
+            Email
+            <input
+              type="email"
               className="border rounded w-full py-1 px-2 font-normal"
-              {...register("gender", { required: "This field is required" })}
-            ></input> */}
+              {...register("email", { required: "This field is required" })}
+            ></input>
+            {errors.email && (
+              <span className="text-red-500">{errors.email.message}</span>
+            )}
+          </label>
+          <label className="text-gray-700 text-sm font-bold flex-1">
+            Gender
             <select
               {...register("gender", { required: "This field is required" })}
             >
@@ -97,17 +104,7 @@ const Register = () => {
             )}
           </label>
         </div>
-        <label className="text-gray-700 text-sm font-bold flex-1">
-          Email
-          <input
-            type="email"
-            className="border rounded w-full py-1 px-2 font-normal"
-            {...register("email", { required: "This field is required" })}
-          ></input>
-          {errors.email && (
-            <span className="text-red-500">{errors.email.message}</span>
-          )}
-        </label>
+
         <label className="text-gray-700 text-sm font-bold flex-1">
           Password
           <input
