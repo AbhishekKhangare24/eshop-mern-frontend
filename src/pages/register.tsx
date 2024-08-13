@@ -51,7 +51,7 @@ const Register = () => {
           src="https://www.svgrepo.com/show/301692/login.svg"
           alt="Workflow"
         /> */}
-          <h2>Create New Account</h2>
+          <h2>Create new Account</h2>
         </div>
 
         <form onSubmit={onSubmit}>
