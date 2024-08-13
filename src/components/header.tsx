@@ -21,6 +21,24 @@ interface PropsType {
 const Header = ({ user }: PropsType) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { isLoggedIn } = useAppContext();
+
+  let loggedUser = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user") as string)
+    : null;
+
+  const initials = () => {
+    const name: string = loggedUser?.name;
+    const nameParts: string[] = name.split(" ");
+
+    if (nameParts.length > 1) {
+      const firstLastName: string =
+        nameParts[0][0] + nameParts[nameParts.length - 1][0];
+      return firstLastName;
+    } else {
+      return nameParts[0][0];
+    }
+  };
+
   // const logoutHandler = async () => {
   //   try {
   //     await signOut(auth);
@@ -44,19 +62,53 @@ const Header = ({ user }: PropsType) => {
         {/* <FaShoppingBag /> */}
         CART
       </Link>
-      {isLoggedIn ? (
-        <>
-          <SignOutButton />
-        </>
-      ) : (
-        <Link to="/sign-in" style={{ fontWeight: "500" }}>
-          SIGN IN
-        </Link>
-      )}
 
       {user?.role === "admin" && (
         <Link onClick={() => setIsOpen(false)} to="/admin/dashboard">
           Admin
+        </Link>
+      )}
+
+      {user?._id ? (
+        <>
+          <button
+            style={{
+              cursor: "pointer",
+              fontWeight: 600,
+              fontSize: "20px",
+              padding: "5px",
+              borderRadius: "5px",
+              background: "#006888",
+              color: "white",
+            }}
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            {loggedUser && initials()}
+          </button>
+          <dialog open={isOpen}>
+            <div>
+              {user.role === "admin" && (
+                <Link onClick={() => setIsOpen(false)} to="/admin/dashboard">
+                  Admin
+                </Link>
+              )}
+
+              <Link to={"/profile"} onClick={() => setIsOpen(false)}>
+                Profile
+              </Link>
+
+              <Link onClick={() => setIsOpen(false)} to="/orders">
+                Orders
+              </Link>
+              <button>
+                <SignOutButton />
+              </button>
+            </div>
+          </dialog>
+        </>
+      ) : (
+        <Link to="/sign-in" style={{ fontWeight: "500" }}>
+          SIGN IN
         </Link>
       )}
 

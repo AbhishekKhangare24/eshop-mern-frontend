@@ -25,39 +25,8 @@ const SignOutButton = () => {
     mutation.mutate();
   };
 
-  let loggedUser = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user") as string)
-    : null;
-
-  const initials = () => {
-    const name: string = loggedUser?.name;
-    const nameParts: string[] = name.split(" ");
-
-    if (nameParts.length > 1) {
-      const firstLastName: string =
-        nameParts[0][0] + nameParts[nameParts.length - 1][0];
-      return firstLastName;
-    } else {
-      return nameParts[0][0];
-    }
-  };
-
   return (
     <>
-      <Link
-        style={{
-          cursor: "pointer",
-          fontWeight: 600,
-          fontSize: "20px",
-          padding: "3px 5px",
-          borderRadius: "50%",
-          background: "#006888",
-          color: "white",
-        }}
-        to={"/profile"}
-      >
-        {loggedUser && initials()}
-      </Link>
       <button
         onClick={handleClick}
         className="text-blue-600 px-3 font-bold bg-white hover:bg-gray-100 "
