@@ -14,6 +14,7 @@ import Footer from "./components/footer";
 import Register from "./pages/register";
 import SignIn from "./pages/sign-in";
 import { User } from "./types/types";
+import Profile from "./pages/profile";
 
 const Home = lazy(() => import("./pages/home"));
 const Search = lazy(() => import("./pages/search"));
@@ -77,6 +78,7 @@ const App = () => {
     };
     isUser(loggedUser);
   }, []);
+  console.log(user);
 
   return loading ? (
     <Loader />
@@ -115,12 +117,14 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+          <Route path="/profile" element={<Profile />} />
 
           {/* Logged In User Routes */}
           <Route
             element={<ProtectedRoute isAuthenticated={user ? true : false} />}
           >
             <Route path="/shipping" element={<Shipping />} />
+            {/* <Route path="/profile" element={<Profile />} /> */}
             <Route path="/orders" element={<Orders />} />
             <Route path="/order/:id" element={<OrderDetails />} />
             <Route path="/pay" element={<Checkout />} />

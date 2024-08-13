@@ -3,6 +3,8 @@ import { useMutation, useQueryClient } from "react-query";
 import * as apiClient from "../redux/api/api-client";
 import { useAppContext } from "../contexts/AppContext";
 import { Link, useNavigate } from "react-router-dom";
+import { userExist } from "../redux/reducer/userReducer";
+import { useDispatch } from "react-redux";
 
 export type RegisterFormData = {
   name: string;
@@ -19,6 +21,7 @@ const Register = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { showToast } = useAppContext();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -29,6 +32,10 @@ const Register = () => {
 
   const mutation = useMutation(apiClient.register, {
     onSuccess: async () => {
+      let loggedUser = localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user") as string)
+        : null;
+      dispatch(userExist(loggedUser));
       showToast({ message: "Registration Success!", type: "SUCCESS" });
       await queryClient.invalidateQueries("validateToken");
       navigate("/");
@@ -39,7 +46,6 @@ const Register = () => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log("data ==>", data);
     mutation.mutate({ ...data, photo: "dummyPhoto" });
   });
 
