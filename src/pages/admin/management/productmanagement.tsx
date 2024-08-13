@@ -44,6 +44,7 @@ const Productmanagement = () => {
 
   const photosFiles = useFileHandler("multiple", 10, 5);
 
+  console.log("photoFiles ==>", photosFiles);
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
