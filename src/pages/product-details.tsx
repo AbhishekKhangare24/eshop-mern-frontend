@@ -117,6 +117,7 @@ const ProductDetails = () => {
           <main>
             <section>
               <Slider
+                objectFit="contain"
                 showThumbnails
                 showNav={false}
                 onClick={() => setCarouselOpen(true)}
