@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  zoom: 97.5%;
+  zoom: 99.5%;
 }
 
 body {
@@ -46,6 +46,7 @@ $color3: rgb(0, 104, 136);
 @import "cart";
 @import "shipping";
 @import "login";
+@import "register";
 @import "search";
 @import "product-details";
 @import "footer";

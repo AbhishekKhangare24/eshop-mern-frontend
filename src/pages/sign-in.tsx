@@ -79,11 +79,12 @@ const SignIn = () => {
               <label htmlFor="password" className="sign_in-8">
                 Password
               </label>
-              <div className="sign_in-9">
+              <div className="sign_in-4">
                 <input
                   id="password"
                   type="password"
-                  className="sign_in-10"
+                  placeholder="Enter Your Password"
+                  className="sign_in-5"
                   {...register("password", {
                     required: "This field is required",
                     minLength: {
@@ -100,9 +101,9 @@ const SignIn = () => {
             <div className="sign_in-11">
               <div className="sign_in-12">
                 Not Registered?
-                <a href="/register" className="sign_in-13">
+                <Link to="/register" className="sign_in-13">
                   Create an Account Here
-                </a>
+                </Link>
               </div>
             </div>
             <div className="mt-6">

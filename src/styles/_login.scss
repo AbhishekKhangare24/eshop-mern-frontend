@@ -158,8 +158,8 @@
 
 .sign_in-5:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
-  border-color: #3b82f6;
+  // box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  border-color: $color3;
 }
 
 @media (min-width: 640px) {
@@ -208,7 +208,7 @@
 
 .sign_in-10:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  // box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
   border-color: #3b82f6;
 }
 
@@ -229,16 +229,19 @@
 .sign_in-12 {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding-bottom: 5px;
 }
 
 .sign_in-13 {
   font-weight: 500;
-  color: #3b82f6;
+  padding-bottom: 10px;
+  color: #0b8268;
+  margin-left: 5px;
   transition: all 0.15s ease-in-out;
 }
 
 .sign_in-13:hover {
-  color: #3b82f6;
+  color: #0b8268;
 }
 
 .sign_in-13:focus {
@@ -267,20 +270,20 @@
   font-weight: 500;
   border-radius: 0.375rem;
   color: #ffffff;
-  background-color: #3b82f6;
+  background-color: $color3;
   transition: all 0.15s ease-in-out;
 }
 
 .sign_in-15:hover {
-  background-color: #3b82f6;
+  background-color: $color3;
 }
 
 .sign_in-15:focus {
   outline: none;
-  border-color: #5a67d8;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
+  border-color: #0b8268;
+  // box-shadow: 0 0 0 3px rgba(12, 150, 127, 0.5);
 }
 
 .sign_in-15:active {
-  background-color: #5a67d8;
+  background-color: #0b8268;
 }
