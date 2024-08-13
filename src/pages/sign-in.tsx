@@ -46,53 +46,76 @@ const SignIn = () => {
   });
 
   return (
-    <form className="sign-in" onSubmit={onSubmit}>
-      <div>
-        <h2 className="text-3xl font-bold">Sign In</h2>
-        <label className="text-gray-700 text-sm font-bold flex-1">
-          Email
-          <input
-            type="email"
-            className="border rounded w-full py-1 px-2 font-normal"
-            {...register("email", { required: "This field is required" })}
-          ></input>
-          {errors.email && (
-            <span className="text-red-500">{errors.email.message}</span>
-          )}
-        </label>
-        <label className="text-gray-700 text-sm font-bold flex-1">
-          Password
-          <input
-            type="password"
-            className="border rounded w-full py-1 px-2 font-normal"
-            {...register("password", {
-              required: "This field is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters",
-              },
-            })}
-          ></input>
-          {errors.password && (
-            <span className="text-red-500">{errors.password.message}</span>
-          )}
-        </label>
-        <span className="flex items-center justify-between">
-          <span className="text-sm">
-            Not Registered?{" "}
-            <Link className="underline" to="/register">
-              Create an account here
-            </Link>
-          </span>
-          <button
-            type="submit"
-            className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-xl"
-          >
-            Login
-          </button>
-        </span>
+    <div className="sign-in_container" onSubmit={onSubmit}>
+      <div className="sub_container">
+        {/* <img
+          src="https://www.svgrepo.com/show/301692/login.svg"
+          alt="Workflow"
+        /> */}
+        <h2>Sign in to your account</h2>
       </div>
-    </form>
+
+      <div className="sign_in-1">
+        <div className="sign_in-2">
+          <form>
+            <div>
+              <label htmlFor="email" className="sign_in-3">
+                Email addresss
+              </label>
+
+              <div className="sign_in-4">
+                <input
+                  type="email"
+                  placeholder="user@example.com"
+                  className="sign_in-5"
+                  {...register("email", { required: "This field is required" })}
+                ></input>
+                {errors.email && (
+                  <span className="sign_in-6">{errors.email.message}</span>
+                )}
+              </div>
+            </div>
+            <div className="sign_in-7">
+              <label htmlFor="password" className="sign_in-8">
+                Password
+              </label>
+              <div className="sign_in-9">
+                <input
+                  id="password"
+                  type="password"
+                  className="sign_in-10"
+                  {...register("password", {
+                    required: "This field is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be at least 6 characters",
+                    },
+                  })}
+                ></input>
+                {errors.password && (
+                  <span className="sign_in-6">{errors.password.message}</span>
+                )}
+              </div>
+            </div>
+            <div className="sign_in-11">
+              <div className="sign_in-12">
+                Not Registered?
+                <a href="/register" className="sign_in-13">
+                  Create an Account Here
+                </a>
+              </div>
+            </div>
+            <div className="mt-6">
+              <span className="sign_in-14">
+                <button type="submit" className="sign_in-15">
+                  Sign in
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 
