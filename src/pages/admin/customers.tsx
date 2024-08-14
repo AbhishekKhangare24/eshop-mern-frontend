@@ -15,7 +15,8 @@ import { CustomError } from "../../types/api-types";
 import { responseToast } from "../../utils/features";
 
 interface DataType {
-  avatar: ReactElement;
+  // avatar: ReactElement;
+  avatar: Number;
   name: string;
   email: string;
   gender: string;
@@ -24,8 +25,12 @@ interface DataType {
 }
 
 const columns: Column<DataType>[] = [
+  // {
+  //   Header: "Avatar",
+  //   accessor: "avatar",
+  // },
   {
-    Header: "Avatar",
+    Header: "Sr. No",
     accessor: "avatar",
   },
   {
@@ -72,16 +77,17 @@ const Customers = () => {
   useEffect(() => {
     if (data)
       setRows(
-        data.users.map((i) => ({
-          avatar: (
-            <img
-              style={{
-                borderRadius: "50%",
-              }}
-              src={i.photo}
-              alt={i.name}
-            />
-          ),
+        data.users.map((i, index) => ({
+          // avatar: (
+          //   <img
+          //     style={{
+          //       borderRadius: "50%",
+          //     }}
+          //     src={i.photo}
+          //     alt={i.name}
+          //   />
+          // ),
+          avatar: index + 1,
           name: i.name,
           email: i.email,
           gender: i.gender,

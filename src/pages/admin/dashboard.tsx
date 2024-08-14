@@ -38,7 +38,7 @@ const Dashboard = () => {
               <BsSearch />
               <input type="text" placeholder="Search for data, users, docs" />
               <FaRegBell />
-              <img src={user?.photo || userImg} alt="User" />
+              {/* <img src={user?.photo || userImg} alt="User" /> */}
             </div>
 
             <section className="widget-container">
