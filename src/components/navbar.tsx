@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { User } from "../types/types";
 import { Link } from "react-router-dom";
 import SignOutButton from "./signout-button";
@@ -47,26 +47,42 @@ const Navbar = ({ user }: PropsType) => {
         </div>
         <ul className={`navbar__menu ${isOpen ? "navbar__menu--active" : ""}`}>
           <li className="navbar__item">
-            <Link className="navbar__link" to={"/"}>
+            <Link
+              onClick={() => setIsOpen(false)}
+              className="navbar__link"
+              to={"/"}
+            >
               HOME
             </Link>
           </li>
 
           <li className="navbar__item">
-            <Link className="navbar__link" to={"/search"}>
+            <Link
+              onClick={() => setIsOpen(false)}
+              className="navbar__link"
+              to={"/search"}
+            >
               SEARCH
             </Link>
           </li>
 
           <li className="navbar__item">
-            <Link className="navbar__link" to={"/cart"}>
+            <Link
+              onClick={() => setIsOpen(false)}
+              className="navbar__link"
+              to={"/cart"}
+            >
               CART
             </Link>
           </li>
 
           {user?.role === "admin" && (
             <li className="navbar__item">
-              <Link className="navbar__link" to="/admin/dashboard">
+              <Link
+                onClick={() => setIsOpen(false)}
+                className="navbar__link"
+                to="/admin/dashboard"
+              >
                 ADMIN
               </Link>
             </li>
@@ -75,19 +91,27 @@ const Navbar = ({ user }: PropsType) => {
           {user?._id ? (
             <>
               <li className="navbar__item">
-                <Link className="navbar__link" to="/orders">
+                <Link
+                  onClick={() => setIsOpen(false)}
+                  className="navbar__link"
+                  to="/orders"
+                >
                   ORDERS
                 </Link>
               </li>
 
               <li className="navbar__item">
                 <Tooltip text="profile">
-                  <Link to={"/profile"} className="navbar__link">
+                  <Link
+                    onClick={() => setIsOpen(false)}
+                    to={"/profile"}
+                    className="navbar__link"
+                  >
                     {loggedUser && initials()}
                   </Link>
                 </Tooltip>
               </li>
-              <li className="navbar__item">
+              <li onClick={() => setIsOpen(false)} className="navbar__item">
                 <SignOutButton />
               </li>
             </>
@@ -96,6 +120,7 @@ const Navbar = ({ user }: PropsType) => {
               <Link
                 className="navbar__button"
                 to="/sign-in"
+                onClick={() => setIsOpen(false)}
                 style={{ fontWeight: "500" }}
               >
                 SIGN UP

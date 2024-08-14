@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 
 type ToastProps = {
   message: string;
@@ -7,15 +7,15 @@ type ToastProps = {
   onClose: () => void;
 };
 
-type Style = {
-  position: string;
-  top: string;
-  right: string;
-  padding: string;
-  borderRadius: string;
-  backgroundColor: string;
-  color: string;
-};
+// type Style = {
+//   position: string;
+//   top: string;
+//   right: string;
+//   padding: string;
+//   borderRadius: string;
+//   backgroundColor: string;
+//   color: string;
+// };
 
 const Toast = ({ message, type, onClose }: ToastProps) => {
   useEffect(() => {
