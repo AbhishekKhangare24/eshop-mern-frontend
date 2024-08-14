@@ -134,7 +134,7 @@ const ProductDetails = () => {
             </section>
             <section>
               <code>{data?.product?.category}</code>
-              <h1>{data?.product?.name}</h1>
+              <h3>{data?.product?.name}</h3>
               <em
                 style={{ display: "flex", gap: "1rem", alignItems: "center" }}
               >

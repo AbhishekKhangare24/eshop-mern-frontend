@@ -29,7 +29,7 @@ button {
 
 $color1: white;
 $color2: rgb(46, 46, 46);
-$color3: rgb(0, 104, 136);
+$color3: #0b8268;
 
 .red {
   color: red;
@@ -43,6 +43,7 @@ $color3: rgb(0, 104, 136);
 
 @import "admin-styles/mixin";
 @import "home";
+@import "header";
 @import "cart";
 @import "shipping";
 @import "login";

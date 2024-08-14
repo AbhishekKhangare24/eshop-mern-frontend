@@ -65,46 +65,34 @@ const Header = ({ user }: PropsType) => {
 
       {user?.role === "admin" && (
         <Link onClick={() => setIsOpen(false)} to="/admin/dashboard">
-          Admin
+          ADMIN
         </Link>
       )}
 
       {user?._id ? (
         <>
-          <button
-            style={{
-              cursor: "pointer",
-              fontWeight: 600,
-              fontSize: "20px",
-              padding: "5px",
-              borderRadius: "5px",
-              background: "#006888",
-              color: "white",
-            }}
-            onClick={() => setIsOpen((prev) => !prev)}
-          >
-            {loggedUser && initials()}
+          <Link onClick={() => setIsOpen(false)} to="/orders">
+            ORDERS
+          </Link>
+          <button>
+            <SignOutButton />
           </button>
-          <dialog open={isOpen}>
-            <div>
-              {user.role === "admin" && (
-                <Link onClick={() => setIsOpen(false)} to="/admin/dashboard">
-                  Admin
-                </Link>
-              )}
-
-              <Link to={"/profile"} onClick={() => setIsOpen(false)}>
-                Profile
-              </Link>
-
-              <Link onClick={() => setIsOpen(false)} to="/orders">
-                Orders
-              </Link>
-              <button>
-                <SignOutButton />
-              </button>
-            </div>
-          </dialog>
+          <Link to={"/profile"} onClick={() => setIsOpen(false)}>
+            <button
+              style={{
+                cursor: "pointer",
+                fontWeight: 600,
+                fontSize: "20px",
+                padding: "5px",
+                borderRadius: "5px",
+                background: "#006888",
+                color: "white",
+              }}
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              {loggedUser && initials()}
+            </button>
+          </Link>
         </>
       ) : (
         <Link to="/sign-in" style={{ fontWeight: "500" }}>

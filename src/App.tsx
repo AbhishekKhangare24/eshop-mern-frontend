@@ -15,6 +15,7 @@ import Register from "./pages/register";
 import SignIn from "./pages/sign-in";
 import { User } from "./types/types";
 import Profile from "./pages/profile";
+import Navbar from "./components/navbar";
 
 const Home = lazy(() => import("./pages/home"));
 const Search = lazy(() => import("./pages/search"));
@@ -85,7 +86,8 @@ const App = () => {
   ) : (
     <Router>
       {/* Header */}
-      <Header user={user} />
+      {/* <Header user={user} /> */}
+      <Navbar user={user} />
       <Suspense fallback={<LoaderLayout />}>
         <Routes>
           <Route path="/" element={<Home />} />
