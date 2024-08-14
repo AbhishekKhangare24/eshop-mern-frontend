@@ -165,6 +165,7 @@ const Home = () => {
               ))}
             </ul>
           </aside>
+
           <Slider
             autoplay
             autoplayDuration={1500}
