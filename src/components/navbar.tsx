@@ -11,7 +11,7 @@ interface PropsType {
 const Navbar = ({ user }: PropsType) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  let loggedUser = localStorage.getItem("user")
+  const loggedUser = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user") as string)
     : null;
 
