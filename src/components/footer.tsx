@@ -4,10 +4,20 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa6";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
+
   return (
-    <footer className="footer">
+    <footer
+      className="footer"
+      style={{
+        display:
+          pathname == "register" || pathname == "sign-in" ? "block" : "none",
+      }}
+    >
       <div className="footer-container">
         <div className="footer-row">
           <div className="footer-col">
