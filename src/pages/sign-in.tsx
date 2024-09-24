@@ -27,7 +27,7 @@ const SignIn = () => {
 
   const mutation = useMutation(apiClient.signIn, {
     onSuccess: async () => {
-      let loggedUser = localStorage.getItem("user")
+      const loggedUser = localStorage.getItem("user")
         ? JSON.parse(localStorage.getItem("user") as string)
         : null;
       dispatch(userExist(loggedUser));
@@ -52,7 +52,7 @@ const SignIn = () => {
           src="https://www.svgrepo.com/show/301692/login.svg"
           alt="Workflow"
         /> */}
-        <h2>Sign in to your Account</h2>
+        <h2>Sign in to Eshop</h2>
       </div>
 
       <div className="sign_in-1">
@@ -101,7 +101,7 @@ const SignIn = () => {
             <div className="sign_in-11">
               <div className="sign_in-12">
                 Not Registered?
-                <Link to="/register" className="sign_in-13">
+                <Link to="/sign-up" className="sign_in-13">
                   Create an Account Here
                 </Link>
               </div>

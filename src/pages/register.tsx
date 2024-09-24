@@ -32,7 +32,7 @@ const Register = () => {
 
   const mutation = useMutation(apiClient.register, {
     onSuccess: async () => {
-      let loggedUser = localStorage.getItem("user")
+      const loggedUser = localStorage.getItem("user")
         ? JSON.parse(localStorage.getItem("user") as string)
         : null;
       dispatch(userExist(loggedUser));
@@ -57,7 +57,7 @@ const Register = () => {
           src="https://www.svgrepo.com/show/301692/login.svg"
           alt="Workflow"
         /> */}
-          <h2>Create new Account</h2>
+          <h2>Sign up to Eshop</h2>
         </div>
 
         <form className="reg_form" onSubmit={onSubmit}>

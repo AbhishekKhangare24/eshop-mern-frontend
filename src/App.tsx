@@ -67,7 +67,7 @@ const App = () => {
     //   } else dispatch(userNotExist());
     // });
 
-    let loggedUser = localStorage.getItem("user")
+    const loggedUser = localStorage.getItem("user")
       ? JSON.parse(localStorage.getItem("user") as string)
       : null;
 
@@ -104,7 +104,7 @@ const App = () => {
             }
           /> */}
           <Route
-            path="/register"
+            path="/sign-up"
             element={
               <ProtectedRoute isAuthenticated={user ? false : true}>
                 <Register />

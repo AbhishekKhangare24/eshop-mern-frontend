@@ -15,7 +15,7 @@ const Footer = () => {
       className="footer"
       style={{
         display:
-          pathname == "register" || pathname == "sign-in" ? "block" : "none",
+          pathname == "sign-up" || pathname == "sign-in" ? "block" : "none",
       }}
     >
       <div className="footer-container">
