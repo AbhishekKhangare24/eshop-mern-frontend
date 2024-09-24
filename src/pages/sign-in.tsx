@@ -52,7 +52,7 @@ const SignIn = () => {
           src="https://www.svgrepo.com/show/301692/login.svg"
           alt="Workflow"
         /> */}
-        <h2>Sign in to Eshop</h2>
+        <h2 className="bg-green-500">Sign in to Eshop</h2>
       </div>
 
       <div className="sign_in-1">
